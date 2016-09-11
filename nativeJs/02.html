@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset ="utf-8"/>
+	<title>网页换肤</title>
+	<style>
+			*{
+				margin:0;
+				padding:0;
+			}
+			.wrap{
+				width: 700px;
+				height:500px;
+			}
+			input{
+				margin:20px;
+				width:30px;
+				height:30px;
+				appearance:button;
+
+			}
+			#red{
+				background-color: #ff0000;
+
+			}
+			nav{
+				background-color: #600;
+
+			}
+			nav li{
+				display:inline-block;
+				width: 100px;
+				height:50px;
+				text-align:center;
+				line-height: 50px;
+				white-space: nowrap;
+				border-left: solid 1px #fff;
+			}
+			nav li a{
+				color:#fff;
+				text-decoration:none;
+			}
+		</style>
+</head>
+<body>
+	<div class="wrap">
+		<form id="btn">
+			<input type="radio" name="color" id="red" checked="checked">
+			<input type="radio" name="color" id="green">
+			<input type="radio" name="color" id="black">
+		</form>
+
+		<nav>
+			<li>
+				<a href="">新闻</a>
+			</li>
+			<li>
+				<a href="">娱乐</a>
+			</li>
+			<li>
+				<a href="">体育</a>
+			</li>
+			<li>
+				<a href="">电影</a>
+			</li>
+			<li>
+				<a href="">音乐</a>
+			</li>
+			<li>
+				<a href="">旅游</a>
+			</li>
+		</nav>
+	</div>
+	<script>
+	 var navcolor={
+	 	red:'#f00',
+	 	green:'#0f0',
+	 	black:'#00f'
+	 }
+	 var wrapcolor = {
+	 	red:"#600",
+	 	green:'#060',
+	 	black:'#006'
+	 }
+	 var element = document.getElementById("btn");
+	 function delecateEvent(clickelement,targetName,eventName,handler){
+	 	clickelement.addEventListener(eventName,function(event){
+	 		var target = event.target;
+	 		if(target.nodeName.toLowerCase() == targetName.toLowerCase()){
+	 			return handler(target.id);
+	 		}
+	 	})
+	 }
+	 function changeColor(id){
+	 	var wrap = document.getElementsByClassName("wrap")[0];
+	 	var nav = document.getElementsByTagName("nav")[0];
+	 	wrap.style.backgroundColor = wrapcolor[id];
+	 	nav.style.backgroundColor = navcolor[id];
+	 }
+
+	 delecateEvent(element,'input','click',changeColor)
+	</script>
+</body>
+</html>

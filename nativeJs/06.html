@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>记住密码提示框</title>
+		<style>
+			div{
+				width:30%;
+				margin:0 auto;
+			}
+			#tip{
+				display: none;
+
+			}
+		</style>
+	}
+	</head>
+	<body>
+		<div id="rememberpwd">
+		   <input type="checkbox" >两周内自动登录
+		</div>
+		<div id= "tip">
+			为了您的信息安全，请不要在网吧或公用电脑上使用此功能
+		</div>
+		<script>
+		var element =document.getElementById('rememberpwd');
+		element.addEventListener('mouseenter',function(){
+			var tip = document.getElementById('tip');
+			tip.style.display ='block';
+		},false)
+		</script>
+	</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>鼠标移入移出改变样式</title>
+		<style>
+			div{
+				display: inline-block;
+				width:150px;
+				height: 150px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">鼠标移入改变样式，移出恢复样式</div>
+		<script>
+		var element = document.getElementById("box");
+		element.addEventListener('mouseenter',function(){
+			element.style.color= "#fff";
+			element.style.backgroundColor = "#000";
+		},false)
+		element.addEventListener('mouseleave',function(){
+			element.style.color= "#f00";
+			element.style.backgroundColor = "#fff";
+			element.style.border="solid 5px #f00";
+			element.style.cursor ="crosshair";
+		},false)
+		</script>
+	</body>
+</html>

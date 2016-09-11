@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>样式设置</title>
+	<style>
+* {
+          margin: 0;
+          padding: 0;
+        }
+        
+        #btn {
+          text-align: center;
+          margin-top: 10px;
+        }
+        
+        #main {
+          background-color: #008800;
+          width: 100px;
+          height: 100px;
+          margin: 30px auto;
+        }
+	</style>
+</head>
+<body>
+	<div id="btn">
+		<button id="wider">变宽</button>
+		<button id="higher">变高</button>
+		<button id="change-color">变色</button>
+		<button id="hide">隐藏</button>
+		<button id="reset">重置</button>
+	</div>
+	<div id="wrap">
+		<div id="main"></div>
+	</div>
+	<script>
+//更新：使用事件代理
+var btns = document.getElementById('btn');
+var mainDiv = document.getElementById('main');
+var newStyle = {
+    width: '200px',
+    height: '200px',
+    backgroundColor: '#880000',
+    display: 'none'
+};
+//点击事件只负责获取按钮的索引即可
+function delegateEvent(delegateElement, targetTag, eventName, handler) {
+    delegateElement.addEventListener(eventName, function(event) {
+        var target = event.target;
+        console.log(target)
+        console.log(target.nodeName.toLowerCase())
+        if (target.nodeName.toLowerCase() === targetTag.toLowerCase())
+            return handler(event);
+    });
+}
+//修改样式的事交给独立的应用程序
+function changeStyle(event) {
+    var target = event.target;
+    var id = target.id;
+    switch (id) {
+        case 'wider':
+            mainDiv.style['width'] = newStyle['width'];
+            break;
+        case 'higher':
+            mainDiv.style['height'] = newStyle['height'];
+            break;
+        case 'change-color':
+            mainDiv.style['backgroundColor'] = newStyle['backgroundColor'];
+            break;
+        case 'hide':
+            mainDiv.style['display'] = newStyle['display'];
+            break;
+        case 'reset':
+            mainDiv.style.cssText = '';// 重置样式 只需要将对象的cssText清空即可
+            break;
+    }
+}
+
+delegateEvent(btns, 'button', 'click', changeStyle);
+		</script>
+</body>
+</html>

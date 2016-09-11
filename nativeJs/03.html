@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>函数接收参数并弹出</title>
+		<style>
+		*{
+			margin:0;
+			padding:0;
+		}
+			 form{
+				width:400px;
+				margin:0 auto;
+			}
+			input[type="text"]{
+				width:400px;
+				margin:20px auto;
+			}
+			#btn {
+				display:block;
+				width:50px;
+				margin: 0 auto;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrap">
+		<!--file:///E:/aaanow/everyDay/nativeJs/03.html?a=试试&b=搜索-->
+			<form action="" name ="myform">
+				<input type="text" id="one" name="a">
+				<input type="text" id="two" name="b"><br/>
+				<input type="submit" id="ss" value="传参"><br/>
+			</form>
+		</div>
+		<script>
+
+
+          var element = document.getElementById("ss");
+
+
+          element.onclick =function(){
+          // var input_1 = form.one.value;
+          // var input_2 = form.two.value;
+          var input_1 = document.getElementById("one").value;
+          var input_2 = document.getElementById("two").value;
+          	alert(input_1);
+          	alert(input_2);
+          }
+   
+		</script>
+	</body>
+</html>

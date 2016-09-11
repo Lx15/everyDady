@@ -1,0 +1,19 @@
+{
+  "name": "ifetask",
+  "version": "1.0.0",
+  "description": "xx",
+  "scripts": {
+    "test": "task"
+  },
+  "keywords": [
+    "xx"
+  ],
+  "author": "lx",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.9.0"
+  },
+  "dependencies": {
+    "gulp-sass": "^2.3.2"
+  }
+}

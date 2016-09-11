@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<style>
+		#cube{
+			width:50px;
+			height:50px;
+			background-color: green;
+		}
+	</style>
+</head>
+<body>
+	<button onclick="width()">变宽</button>
+	<button onclick="height()">变高</button>
+	<button onclick="color()">变色</button>
+	<button onclick="hide()">隐藏</button>
+	<button onclick="reset()">重置</button>
+	<div id="cube"></div>
+	<script>
+	    function $(id){
+	    	return document.getElementById(id)
+	    }
+		  function width(){
+		  	var e= $('cube')
+		  	e.style.width ='100px';
+		  }
+
+		  function height(){
+		  	var e= $('cube')
+
+		  	e.style.height ='100px';
+		  }
+
+		  function color(){
+		  	var e= $('cube')
+
+		  	e.style.backgroundColor ='#999';
+		  }	
+		  function hide(){
+		  	var e= $('cube')
+
+		  	e.style.display= 'none';
+		  }		
+
+		  function reset(){
+		  	var e= $('cube')
+
+		  	e.style.width ='50px';
+		  	e.style.height ='50px';
+		  	e.style.backgroundColor = 'green';
+		  	e.style.display = 'block'
+		  }
+		</script>
+</body>
+</html>

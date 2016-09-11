@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<style>
+		  *{
+		  	margin:0 ;		
+			padding:0;
+		  }
+
+			#wrap{
+				width:50px;
+				margin: 0 auto;
+			}
+			ul{
+				display: none;
+				
+			}
+
+			ul li{
+				list-style: none;
+				border: solid 1px #999;
+				width:50px;
+				height:40px;
+				text-align: center;
+				padding-top: 20px;
+				z-index:10;
+				/*display:block;*/
+			}
+			ul li:first-child {
+				border-bottom: none;
+			}
+			ul li:nth-child(2){
+				border-top: none;
+				border-bottom: none;
+			}
+			ul li a{
+				text-decoration: none;
+			}
+			ul li:hover  {
+				background-color: #EEE;
+			}
+			.show{
+				display:block;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="wrap">
+			<button id= "btn">输入法</button> 
+			<ul id="dropSelecet">
+				<li><a href="javasscript:void(0)">手写</a></li>
+				<li><a href="javasscript:void(0)">拼音</a></li>
+				<li><a href="javasscript:void(0)">关闭</a></li>
+			</ul>
+		</div>
+		<script>
+		var btn= document.getElementById("btn");
+		function hasClass(element,classname){
+			return (new RegExp('(\\s|^)'+classname+'(\\s|$)').test(element.className));
+		}
+		function addClass(element,classname){
+			return element.className =(element.className)?(element.className+' '+classname):(classname);
+		}
+		function removeClass(element,classname){
+			return element.className = element.className.replace(new RegExp('(\\s|^)'+classname+'(\\s|$)')," ").trim();
+		}
+		function toggle(element,classname){
+			if(hasClass(element,classname)){
+				removeClass(element,classname)
+			}else{
+				addClass(element,classname)
+			}
+		}
+		btn.addEventListener('click',function(){
+			var dropSelecet= document.getElementById("dropSelecet");
+			toggle(dropSelecet,'show');
+		})
+
+		</script>
+	</body>
+</html>

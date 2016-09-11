@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset ="utf-8"/>
+	<title>网页换肤</title>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.clear:after {
+  clear: both;
+  display: block;
+  visibility: hidden;
+  height: 0;
+  content: ' ';
+}
+
+#header {
+  width: 499px;
+  margin: 0 auto;
+}
+
+#skin {
+  margin: 10px 0;
+  list-style: none;
+}
+
+#skin li {
+  float: left;
+  width: 8px;
+  height: 8px;
+  margin-right: 10px;
+}
+
+#red {
+  border: solid 4px #F00;
+  background-color: #F00;
+}
+
+#green {
+  border: solid 4px #080;
+  background-color: #080;
+}
+
+#black {
+  border: solid 4px #000;
+  background-color: #000;
+}
+
+#skin li:hover {
+  cursor: pointer;
+}
+
+#skin li.active {
+  background-color: #fff;
+}
+
+#nav {
+  border-top: solid 1px #fff;
+  border-bottom: solid 1px #fff;
+  border-left: solid 1px #fff;
+  list-style: none;
+}
+
+#nav li {
+  float: left;
+  width: 82px;
+  line-height: 25px;
+  text-align: center;
+  border-right: solid 1px #fff;
+}
+
+#nav li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+#nav li a:hover {
+  text-decoration: underline;
+}
+		</style>
+</head>
+<body>
+<head>
+	<link rel="stylesheet" href="http://codepen.io/levonlin/pen/XXLPrX.css" id="theme_link"></head>
+	<div id="header">
+		<ul id="skin" class="clear">
+			<li id="red"></li>
+			<li id="green" class="active"></li>
+			<li id="black"></li>
+		</ul>
+		<ul id="nav" class="clear">
+			<li>
+				<a href="javascript:void(0);">新闻</a>
+			</li>
+			<li>
+				<a href="javascript:void(0);">娱乐</a>
+			</li>
+			<li>
+				<a href="javascript:void(0);">体育</a>
+			</li>
+			<li>
+				<a href="javascript:void(0);">电影</a>
+			</li>
+			<li>
+				<a href="javascript:void(0);">音乐</a>
+			</li>
+			<li>
+				<a href="javascript:void(0);">旅游</a>
+			</li>
+		</ul>
+	</div>
+	<script>
+	var skins = document.getElementById('skin');
+
+var themesURL = {
+  RED: 'http://codepen.io/levonlin/pen/pgXOjz.css',
+  GREEN: 'http://codepen.io/levonlin/pen/XXLPrX.css',
+  BLACK: 'http://codepen.io/levonlin/pen/ZQdMGG.css'
+};
+
+	function delegateEvent(delegateElement, targetTag, eventName, handler) {
+	  delegateElement.addEventListener(eventName, function(event) {
+	    var target = event.target;
+	    if (targetTag.toLowerCase() === target.nodeName.toLowerCase()) {
+	      return handler(event);
+	    }
+	  }, false);
+	}
+
+	function hasClass(element, className) {
+	  return (new RegExp('(\\s|^)' + className + '(\\s|$)')).test(element.className);
+	}
+
+	function addClass(element, newClassName) {
+	  if (!hasClass(element, newClassName)) {
+	    element.className = element.className ? (element.className + " " + newClassName) : newClassName;
+	  }
+	}
+
+	function removeClass(element, oldClassName) {
+	  if (hasClass(element, oldClassName)) {
+	    element.className = element.className.replace(new RegExp('(\\s|^)' + oldClassName + '(\\s|$)'), " ").trim();
+	  }
+	}
+
+	function changeThemeTo(theme) {
+	  var link = document.getElementById('theme_link');
+	  switch (theme) {
+	    case 'red':
+	      link.href = themesURL.RED;
+	      break;
+	    case 'green':
+	      link.href = themesURL.GREEN;
+	      break;
+	    case 'black':
+	      link.href = themesURL.BLACK;
+	      break;
+	  }
+	}
+
+	function changeStyle(event) {
+	  var target = event.target;
+	  var theme = target.id;
+	  var siblings = target.parentNode.children;
+	  for (var i = 0, len = siblings.length; i < len; i++) {
+	    removeClass(siblings[i], 'active');
+	  }
+	  addClass(target, 'active');
+	  changeThemeTo(theme);
+	}
+
+delegateEvent(skins, 'li', 'click', changeStyle);
+	</script></body>
+</html>
