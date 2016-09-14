@@ -37,3 +37,5 @@
     - 绝对定位元素的 margin 不与任何 margin 发生折叠。
     - 根元素的 margin 不与其它任何 margin 发生折叠；
 
+10 parent.childNodes 是所有的子元素
+   parent.child 是只有第一层子元素

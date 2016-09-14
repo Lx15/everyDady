@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset ="utf-8"/>
+	<style>
+	*{
+		margin:0;
+		padding:0;
+		box-sizing:border-box;
+	}
+		.wrap{
+			width:250px;
+			height:250px;
+			padding-top:10px;
+			padding-left:10px;
+			background-color: #999;
+			margin: 0 auto;
+		}
+		#head li{
+			display:inline-block;
+			width:50px;
+			height:50px;
+			margin-bottom:10px;
+			background-color: #333;
+			color:#fff;
+			line-height: 25px;
+			text-align:center;
+		}
+	#head li.current{
+		background-color: #fff;
+		color:#e00;
+		border:solid 1px #e00;
+		cursor: pointer;
+	}
+     #content  li{
+     	list-style: none;
+     	background-color: #EEE;
+        width:225px;
+        height:50px;
+        margin:0 0 10px 0;
+        line-height:25px;
+        display:none;
+     }
+     #content  li.now{
+     	display:block;
+     }
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<ul id="head">
+			<li class="current">1<br/>JAN</li>
+			<li>2<br/>FEB</li>
+			<li>3<br/>MAR</li>
+			<li>4<br/>APR</li>
+			<li>5<br/>MAY</li>
+			<li>6<br/>JUN</li>
+			<li>7<br/>JUL</li>
+			<li>8<br/>AUG</li>
+			<li>9<br/>SEP</li>
+			<li>10<br/>OCT</li>
+			<li>11<br/>NOV</li>
+			<li>12<br/>DEC</li>
+		</ul>
+		<div>
+			<ul  id= "content">
+				<li  class="now"><h4>1月节日</h4>元旦：1月1日至3日放假三天。</li>
+				<li><h4>2月节日</h4>春节：2月2日至8日放假7天。</li>
+				<li><h4>3月节日</h4>妇女节：3月8日妇女节。</li>
+				<li><h4>4月节日</h4>XXXXXXXXXXxxxxxxxxxxXXXXX</li>
+				<li><h4>5月节日</h4>XXXXXXXXXXxxxxxxxxxxXXXXX</li>
+				<li><h4>6月节日</h4>XXXXXXXXXXxxxxxxxxxxXXXXX</li>
+				<li><h4>7月节日</h4>XXXXXXXXXXxxxxxxxxxxXXXXX</li>
+				<li><h4>8月节日</h4>XXXXXXXXXXxxxxxxxxxxXXXXX</li>
+				<li><h4>9月节日</h4>XXXXXXXXXXxxxxxxxxxxXXXXX</li>
+				<li><h4>10月节日</h4>XXXXXXXXXXxxxxxxxxxxXXXXX</li>
+				<li><h4>11月节日</h4>XXXXXXXXXXxxxxxxxxxxXXXXX</li>
+				<li><h4>12月节日</h4>XXXXXXXXXXxxxxxxxxxxXXXXX</li>
+			</ul>
+		</div>
+	</div>
+	<script>
+
+	function removeClass(element,oldclassName){
+		if(hasClass(element,oldclassName)){
+          element.className = element.className.replace((new RegExp('(\\s|^)'+oldclassName+'(\\s|$)'),' ').trim());
+		}
+	}
+	function hasClass (element,oldclassName){
+		return new RegExp('(\\s|^)'+oldclassName+'(\\s|$)').test(element.className);
+	}
+	function addClass (element,classname){
+		if(!hasClass(element,classname)){
+			element.className = element.classname?(element.classname+' '+classname):(classname);
+		}
+	}
+      var head = document.getElementById("head");
+      function delegatEvent(element,targetTag,eventName,handler){
+      	element.addEventListener(eventName,function(event){
+      		var target = event.target;
+      		if(target.nodeName.toLowerCase() === targetTag.toLowerCase()){
+      			handler(event)
+      		}
+      	},false)
+      }
+      function show(event){
+      		var headul = event.target.parentNode;
+      		var contentul = document.getElementById('content');
+      		var contentlis = contentul.children;
+      		var lis = headul.children;
+      		var now = 0;
+      		for(var i=0;i< lis.length;i++){
+      			if(hasClass(lis[i],'current')){
+      				now = i;
+      			}
+      			removeClass(lis[i],'current')
+      			removeClass(contentlis[i],'now')
+      		}
+      		addClass(event.target,'current');
+      		addClass(contentlis[now],'now');
+      }
+      delegatEvent(head,'li','mouseover',show)
+	</script>
+</body>
+</html>
