@@ -1,0 +1,43 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 15px; }
+
+.wrap {
+  background-color: #eee;
+  padding: 20px;
+  border: solid 1px #999; }
+
+.clear {
+  overflow: auto;
+  zoom: 1; }
+
+.left {
+  float: left;
+  width: 200px;
+  border: solid 1px #999; }
+  .left img {
+    width: 80px;
+    height: 80px;
+    margin: 20px; }
+  .left span {
+    position: relative;
+    top: -90px; }
+
+.right {
+  float: right;
+  width: 120px;
+  padding-left: 20px;
+  border: solid 1px #999;
+  padding-top: 20px; }
+  .right img {
+    width: 80px;
+    height: 80px;
+    padding-bottom: 15px; }
+
+.middle {
+  margin-left: 220px;
+  margin-right: 140px;
+  border: solid 1px #999;
+  line-height: 1.5em; }

@@ -7,14 +7,41 @@
 		  	margin:0 ;		
 			padding:0;
 		  }
-			
+		#box{
+			width:100px;
+			height:100px;
+			padding:20px;
+			color:#fff;
+			background:blue;
+			}
 
 		</style>
 	</head>
 	<body>
-
+		属性名：<input type="text" value="background" id="attrName">
+		属性值：<input type="text" value="blue" id="attrValue">
+		<button id="ok">确定</button>
+		<button id="reset">重置</button>
+		<div id="box">
+			在上方输入框输入"属性名"及"属性值"，点击确定按钮查看效果
+		</div>
 		<script>
-
+			var attrName = document.getElementById("attrName");
+			var attrValue = document.getElementById("attrValue");
+			var ok = document.getElementById("ok");
+			var reset= document.getElementById("reset");
+			var box= document.getElementById("box");
+			var originalName =attrName.value;
+			var originalValue = attrName.value;
+			ok.addEventListener('click',function(){
+				var name = attrName.value;
+				var value = attrValue.value;
+				box.style[name]=value;
+			},false)
+			reset.addEventListener('click',function(){
+				// box.style[originalName]=originalValue;
+				box.style.cssText =" ";
+			},false)
 		</script>
 	</body>
 </html>

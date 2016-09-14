@@ -1,0 +1,49 @@
+$border:solid 1px #999;
+*{
+	margin:0;
+	padding:0;
+	box-sizing:border-box;
+	font-size:15px;
+}
+.wrap{
+	background-color:#eee;
+	padding:20px;
+	border: $border;
+
+}
+.clear{
+   overflow: auto;
+   zoom:1;
+}
+.left{
+	float:left;
+	width:200px;
+	border:$border;
+	img{
+		width:80px;
+		height:80px;
+		margin:20px;
+	}
+	span{
+		position:relative;
+		top:-90px;
+	}
+}
+.right{
+	float:right;
+	width:120px;
+	padding-left:20px;
+	border:$border;
+	padding-top:20px;
+	img{
+		width:80px;
+		height:80px;
+        padding-bottom:15px;
+	}
+}
+.middle{
+	margin-left:220px;
+	margin-right:140px;
+	border:$border;
+	line-height:1.5em;
+}
