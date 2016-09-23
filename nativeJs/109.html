@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>播放列表收缩展开</title>
+    <style media="screen">
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        #container {
+            width: 200px;
+            border: solid 1px #ccc;
+            margin: 0 auto;
+        }
+
+        #toggle {
+            background-color: #999;
+            height: 30px;
+            padding-top: 5px;
+        }
+
+        #arrow {
+            float: right;
+        }
+
+        #song-list li {
+            list-style: none;
+            margin: 10px;
+            line-height: 20px;
+        }
+
+        #song-list li a {
+            text-decoration: none;
+            color: #999;
+        }
+
+        .hide {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div id="toggle">播放列表...
+            <div id="arrow">▼</div>
+        </div>
+        <ul id="song-list">
+            <li><a href="javascript:void(0);">玩家之徒 - 蔡依林</a></li>
+            <li><a href="javascript:void(0);">原谅我就是这样的女生 - 戴佩妮</a></li>
+            <li><a href="javascript:void(0);">猜不透 - 丁当</a></li>
+            <li><a href="javascript:void(0);">自导自演 - 周杰伦</a></li>
+            <li><a href="javascript:void(0);">浪漫窝 - 弦子</a></li>
+            <li><a href="javascript:void(0);">流年 - 王菲</a></li>
+        </ul>
+    </div>
+
+    <script type="text/javascript">
+        function hasClass(element, classname) {
+            return (new RegExp('(\\s|^)' + classname + '(\\s|$)')).test(element.className);
+        }
+
+        function addClass(element, classname) {
+            if (!(hasClass(element, classname))) {
+                element.className = element.className ? (element.className + ' ' + classname) : (classname);
+            }
+        }
+
+        function removeClass(element, classname) {
+            if (hasClass(element, classname)) {
+                element.className = element.className.replace(new RegExp('(\\s|^)' + classname + '(\\s|$)'), " ");
+            }
+        }
+        var toggle = document.getElementById('toggle');
+
+        function delegate(element, eventType, targetTag, handler) {
+            element.addEventListener(eventType, function(event) {
+                var target = event.target;
+                var list = document.getElementById("song-list");
+                if(target.nodeName.toLowerCase() == targetTag.toLowerCase()){
+                  handler(list,'hide');
+                }
+            }, false);
+        }
+
+        function switchClass (element,classname) {
+            var flag = hasClass(element,classname);
+            if (flag) {
+              removeClass(element,classname);
+            } else {
+              addClass(element,classname);
+            }
+        }
+        delegate(toggle, 'click', 'div',switchClass)
+    </script>
+</body>
+
+</html>
