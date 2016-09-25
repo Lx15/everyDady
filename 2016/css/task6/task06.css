@@ -105,3 +105,211 @@ header {
       font-size: 12px;
       color: #cccccc;
       font-family: "Microsoft Yahei"; }
+
+.two {
+  margin: 44px;
+  width: 641px; }
+  .two .two-one {
+    display: inline-block;
+    width: 200px;
+    margin-right: 12px;
+    font-size: 12px;
+    color: #767777;
+    font-family: '宋体';
+    line-height: 16px; }
+    .two .two-one p {
+      font-size: 16px;
+      font-family: 'Microsoft Yahei';
+      font-weight: bold;
+      text-decoration: underline;
+      line-height: 30px;
+      color: #418c59; }
+  .two .two-two {
+    display: inline-block;
+    width: 200px;
+    margin-right: 12px;
+    font-size: 12px;
+    color: #231815;
+    font-family: 'Microsoft Yahei';
+    line-height: 16px;
+    opacity: 0.7; }
+    .two .two-two p {
+      font-size: 16px;
+      font-family: 'Microsoft Yahei';
+      font-weight: bold;
+      text-decoration: underline;
+      line-height: 30px;
+      color: #d2994f; }
+  .two .two-three {
+    display: inline-block;
+    width: 200px;
+    font-size: 12px;
+    color: #231815;
+    font-family: 'Microsoft Yahei';
+    line-height: 18px; }
+    .two .two-three p {
+      font-size: 16px;
+      font-family: 'Microsoft Yahei';
+      font-weight: bold;
+      text-decoration: underline;
+      line-height: 30px;
+      color: #cc7680; }
+    .two .two-three .two-three-bottom {
+      margin-top: 35px; }
+      .two .two-three .two-three-bottom span {
+        font-size: 12px;
+        font-family: 'Microsoft Yahei';
+        color: #cd4a48;
+        font-style: italic;
+        opacity: 0.7; }
+
+.three {
+  width: 892px;
+  margin: 44px; }
+  .three .three-left {
+    width: 420px;
+    display: inline-block; }
+    .three .three-left .three-left-up {
+      color: #11456b;
+      font-family: '黑体';
+      font-weight: bold;
+      font-size: 33px;
+      line-height: 45px; }
+      .three .three-left .three-left-up .three-eng-head {
+        font-size: 42px; }
+        .three .three-left .three-left-up .three-eng-head span {
+          font-size: 72px;
+          color: #f5e327;
+          font-style: italic; }
+      .three .three-left .three-left-up hr {
+        width: 415px;
+        border: solid 1px #11456b;
+        margin: 20px 0; }
+    .three .three-left .three-left-down {
+      margin-right: 20px;
+      font-size: 12px;
+      font-family: '宋体';
+      color: '#767777';
+      line-height: 16px;
+      text-align: justify; }
+      .three .three-left .three-left-down:first-letter {
+        font-size: 70px;
+        color: #f5e327;
+        font-family: 'Microsoft Yahei';
+        margin: 30px 10px 20px 0;
+        float: left; }
+      .three .three-left .three-left-down p {
+        text-indent: 2em; }
+      .three .three-left .three-left-down img {
+        display: block;
+        float: right;
+        margin: 20px 10px 10px 20px; }
+  .three .three-right {
+    width: 458px;
+    display: inline-block; }
+    .three .three-right .three-right-up {
+      background-image: url("../../imgs/screen.png");
+      width: 100%;
+      height: 275px;
+      position: relative;
+      margin: 20px; }
+      .three .three-right .three-right-up .three-right-up-bottom {
+        width: 458px;
+        height: 61px;
+        background-color: #567878;
+        opacity: 0.6;
+        position: absolute;
+        bottom: 0;
+        padding: 20px 0 0 20px; }
+        .three .three-right .three-right-up .three-right-up-bottom .first-text {
+          border-left: 3px solid #72b16a;
+          color: #fff;
+          padding-left: 10px;
+          font-family: "Microsoft Yahei";
+          font-size: 26px;
+          margin-right: 10px; }
+        .three .three-right .three-right-up .three-right-up-bottom .second-text {
+          color: #72b16a;
+          font-family: 'Microsoft Yahei';
+          font-style: italic;
+          line-height: 140%;
+          font-size: 12px; }
+    .three .three-right .three-right-down {
+      width: 100%;
+      background-color: #EEEED6;
+      height: 318px;
+      margin: 20px;
+      position: relative; }
+      .three .three-right .three-right-down ul {
+        padding: 20px 0 20px 40px; }
+        .three .three-right .three-right-down ul li {
+          list-style: square;
+          color: #5a5b5b;
+          font-family: '宋体';
+          line-height: 20px;
+          font-size: 16px;
+          text-align: left;
+          margin: 10px; }
+          .three .three-right .three-right-down ul li span {
+            font-style: italic;
+            font-size: 12px;
+            text-align: right; }
+      .three .three-right .three-right-down .three-right-down-left {
+        background-color: #D55D5C;
+        width: 250px;
+        height: 170px;
+        display: inline-block; }
+        .three .three-right .three-right-down .three-right-down-left .number-zero {
+          font-size: 110px;
+          color: #fff;
+          font-family: 'Microsoft Yahei';
+          border-right: solid 2px #fff;
+          margin-left: 20px;
+          display: inline-block; }
+        .three .three-right .three-right-down .three-right-down-left .number-one {
+          display: inline-block;
+          width: 150px; }
+          .three .three-right .three-right-down .three-right-down-left .number-one #one, .three .three-right .three-right-down .three-right-down-left .number-one #two {
+            font-size: 21px;
+            color: #fff;
+            line-height: 24px;
+            font-family: '黑体';
+            font-style: italic; }
+          .three .three-right .three-right-down .three-right-down-left .number-one #hello {
+            font-size: 12px;
+            color: #fff;
+            font-family: '黑体';
+            line-height: 16px; }
+      .three .three-right .three-right-down .three-right-down-right {
+        width: 200px;
+        height: 160px;
+        display: inline-block;
+        font-size: 14px;
+        color: #5a5b5b;
+        font-family: '黑体';
+        line-height: 16px;
+        text-align: justify; }
+        .three .three-right .three-right-down .three-right-down-right::before {
+          content: open-quote;
+          font-size: 72px;
+          color: #D45D5C;
+          font-family: SimHei;
+          position: relative;
+          left: 20px;
+          top: 20px; }
+        .three .three-right .three-right-down .three-right-down-right::after {
+          content: close-quote;
+          font-size: 72px;
+          color: #D45D5C;
+          font-family: SimHei;
+          position: relative;
+          right: 10px;
+          bottom: -20px; }
+
+footer hr {
+  width: 892px;
+  height: 1px;
+  color: #938e8c;
+  position: relative;
+  bottom: 44px;
+  left: 44px; }
