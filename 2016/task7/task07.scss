@@ -1,0 +1,179 @@
+$red:#E8504F;
+$grey:#888;
+$font:'Microsoft Yahei';
+$m-md:20px;
+$m-l:50px;
+$m-s:10px;
+*{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+}
+body{
+  background-color: #fff;
+  font-family: $font;
+}
+.wrap{
+  width: 100%;
+  margin: 0 auto;
+  min-width: 1000px;
+  position:relative;
+}
+header{
+  position:fixed;
+  top:0;
+  width: 100%;
+  min-width: 800px;
+  z-index:10;
+  .logo{
+    margin-left:$m-l;
+    margin-top: $m-md;
+
+    span{
+      font-size:30px;
+      margin-left: $m-s;
+    }
+  }
+  ul{
+    position: absolute;
+    top:$m-s;
+    right: $m-l;
+    li{
+      display: inline-block;
+      padding: $m-md;
+      color:$grey;
+      line-height: $m-md;
+      &:first-child{
+        color:$red;
+        border-bottom:solid 3px $red;
+      }
+      &:last-child{
+        color:$red;
+      }
+    }
+  }
+}
+.one{
+  width:100%;
+  height:750px;
+  position: relative;
+  top:86px;
+  img{
+     width: 100%;
+     height:100%;
+  }
+  .one-one{
+    font-size:48px;
+    color:#333;
+    position:absolute;
+    top:250px;
+    left:120px;
+  }
+  .one-two{
+    font-size:25px;
+    color:#333;
+    position:absolute;
+    top:320px;
+    left:120px;
+  }
+  input[type="button"]{
+    color:#fff;
+    background-color: $red;
+    font-size:33px;
+    width:300px;
+    height: 50px;
+    outline:none;
+    position:absolute;
+    top:450px;
+    left:120px;
+  }
+}
+.two{
+  position: relative;
+  top:86px;
+  table{
+    width:90%;
+    margin:$m-md auto;
+    tr{
+      td{
+        text-align:center;
+        width:20%;
+        color:$grey;
+      }
+    }
+    .second-tr td{
+      padding:$m-s ($m-l+$m-md);
+      border-right:solid 2px $grey;
+    }
+  }
+}
+.three{
+  position: relative;
+  top:86px;
+  background-color: #EEECED;
+  padding:100px;
+  width:100%;
+  text-align: center;
+  img{
+    text-align:center;
+    width:100px;
+    height:100px;
+
+  }
+  p{
+    margin-top:$m-md;
+    font-size:55px;
+    color:$grey;
+
+  }
+}
+.four{
+  position: relative;
+  top:86px;
+  width:100%;
+  img{
+    width:100%;
+    height:350px;
+  }
+  .four-text{
+    position:absolute;
+    top: 80px;
+    width:100%;
+    text-align:center;
+    .four-text-one{
+      font-size:25px;
+      color:#fff;
+      margin:20px;
+    }
+    .four-text-two{
+      font-size:15px;
+      color:#fff;
+      margin:20px;
+    }
+    form{
+      input[type="text"]{
+        width:250px;
+        height:40px;
+        outline:none;
+        margin-right:30px;
+        background-image: url('../../imgs/enve.jpg');
+        background-position: right center;
+        background-repeat: no-repeat;
+        border:solid 1px $red;
+      }
+      input[type="button"]{
+        width:250px;
+        height:40px;
+        outline:none;
+        background-color:$red;
+        color:#fff;
+        font-size:20px;
+        font-family: 'Microsoft Yahei';
+        letter-spacing: 40px;
+        text-align:center;
+        border:solid 1px $red;
+      }
+    }
+  }
+
+}
