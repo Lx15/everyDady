@@ -15,6 +15,7 @@ public class ObjectInstance {
         return "lalal ";
     }
     public static void main(String[] a){
-        System.out.println(new ObjectInstance());
+
+           System.out.println(new ObjectInstance());
     }
 }
