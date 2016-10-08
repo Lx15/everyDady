@@ -1,0 +1,58 @@
+@mixin outlook($color,$value){
+  width:150px;
+  border:solid 1px $color;
+  height: $value;
+}
+*{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+}
+.one{
+  @include outlook(tomato,120px);
+
+}
+.two{
+  @include outlook(tomato,100px);
+}
+.three{
+  @include outlook(tomato,40px);
+}
+.four{
+  @include outlook(blue,200px);
+}
+@media all and (min-width:640px) {
+  .container{
+    border:solid 1px #888;
+    padding:20px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content:space-between;
+    align-items: center;
+  }
+}
+@media all and (max-width:640px) {
+  .container{
+    border:solid 1px #888;
+    padding:20px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap:wrap;
+    justify-content:space-between;
+    align-items: flex-start;
+  }
+ .one{
+   order:2;
+ }
+ .two{
+   order:3;
+ }
+ .three{
+   order:4;
+   margin-top:20px;
+ }
+ .four{
+   order:1;
+ }
+}
