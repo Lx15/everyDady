@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>task19</title>
+    <style media="screen">
+      input[type="number"]{
+        width: 300px;
+        height:40px;
+      }
+    input[type="button"]{
+      width:100px;
+      height:40px;
+      margin-left: 50px;
+      font-size: 20px;
+      font-family: 'Microsoft Yahei';
+      border-radius: 5px;
+      outline:none;
+    }
+    .queueList{
+      position: relative;
+    }
+    .queuenode{
+      width:30px;
+      background-color:tomato;
+      color:#fff;
+      text-align:center;
+      display: inline-block;
+      margin: 20px;
+      position: relative;
+    }
+    </style>
+  </head>
+  <body>
+    <div class="queueValue">
+       <input type="number" id="queueNum" value=""pattern='\d+' required autofocus max="100" min="10" />
+       <input type="button" name="btns" value="左侧入" id="left-in">
+       <input type="button" name="btns" value="右侧入" id="right-in">
+       <input type="button" name="btns" value="左侧出" id="left-out">
+       <input type="button" name="btns" value="右侧出" id="left-out">
+       <input type="button" name="sort" value="冒泡排序" id="bubbleSort">
+       <input type="button" name="reset" value="打乱顺序" id="reset">
+    </div>
+    <div class="queueList">
+
+    </div>
+  </body>
+  <script type="text/javascript" src="task19.js"></script>
+</html>
