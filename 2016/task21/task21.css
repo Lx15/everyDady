@@ -1,0 +1,74 @@
+*{
+  padding: 0;
+  margin:0;
+  box-sizing: border-box;
+}
+*:focus{
+  outline:none;
+}
+#tag{
+  width:200px;
+  height:35px;
+  border-radius: 10px;
+  border:solid 1px pink;
+}
+#tag:focus{
+  border-radius: 15px;
+  border:solid 1px tomato;
+}
+.tag-container{
+  margin:20px;
+  padding:20px;
+  border:solid 1px #999;
+}
+.tag-content{
+  width:100px;
+  height:100px;
+  border-radius:25px;
+  background-color: tomato;
+  color:#fff;
+  text-align: center;
+  line-height: 100px;
+  display: inline-block;
+  margin-right:10px;
+}
+.tag-content:hover{
+  background-color: #900;
+  cursor:pointer;
+}
+#textArea{
+  width:300px;
+  height:150px;
+  border: solid 1px pink;
+  border-radius: 10px;
+}
+#ok{
+  width:100px;
+  height:100px;
+  border-radius: 50px;
+  border:solid 1px tomato;
+  color:#000;
+  font-size:20px;
+  background-color: #fff;
+}
+#ok:hover{
+  background-color: tomato;
+  color:#fff;
+  cursor:pointer;
+}
+.hobby-container{
+  margin:20px;
+  padding:20px;
+  border:solid 1px #999;
+}
+.hobby-content{
+  width:100px;
+  height:100px;
+  border-radius:25px;
+  background-color: tomato;
+  color:#fff;
+  text-align: center;
+  line-height: 100px;
+  display: inline-block;
+  margin-right:10px;
+}
