@@ -1,140 +1,150 @@
 package com.lx;
 
-import java.util.List;
 
-/**
- * Created by pc on 2016/10/17.
- */
-public class Solution {
-    public int removeDuplicates(int[] nums) {
-         int l= nums.length;
-        if(l==0){
+import java.util.*;
+
+public class Solution{
+       //层序遍历1
+        public List<List<Integer>> levelOrder1(TreeNode root) {
+            if(root == null){
+                return  new LinkedList<List<Integer>>();
+            }
+            List<List<Integer>> ret = new LinkedList<List<Integer>>();
+            LinkedList<TreeNode> current = new LinkedList<TreeNode>();
+            LinkedList<TreeNode> next = new LinkedList<TreeNode>();
+            LinkedList<Integer> temp = new LinkedList<Integer>();
+            current.add(root);
+
+            while(!current.isEmpty()){
+                TreeNode a = null;
+                Iterator<TreeNode> it =current.iterator();
+                a = it.next();
+                temp.add(a.val);
+                if(a.left !=null){
+                    next.add(a.left);
+                }
+                if(a.right != null){
+                    next.add(a.right);
+                }
+                current.remove(0);
+                if(current.isEmpty()){
+//                    current =  new LinkedList<TreeNode>(next);
+                    current.addAll(next);// 复制过来
+                    next.clear();
+                    ret.add(new LinkedList<Integer>(temp));
+                    temp.clear();
+                }
+            }
+            return ret;
+        }
+    //层序遍历2
+    public List<List<Integer>> levelOrder(TreeNode root) {
+        ArrayList result = new ArrayList();
+
+        if (root == null) {
+            return result;
+        }
+
+        Queue<TreeNode> queue = new LinkedList<TreeNode>();
+        queue.offer(root);
+
+        while (!queue.isEmpty()) {
+            ArrayList<Integer> level = new ArrayList<Integer>();
+            int size = queue.size();
+            for (int i = 0; i < size; i++) {
+                TreeNode head = queue.poll();
+                level.add(head.val);
+                if (head.left != null) {
+                    queue.offer(head.left);
+                }
+                if (head.right != null) {
+                    queue.offer(head.right);
+                }
+            }
+            result.add(level);
+        }
+
+        return result;
+    }
+    // 从底向上层序遍历
+    public List<List<Integer>> levelOrderBottom(TreeNode root) {
+        ArrayList result = new ArrayList();
+
+        if (root == null) {
+            return result;
+        }
+        Queue<TreeNode> queue = new LinkedList<TreeNode>();
+        queue.offer(root);
+
+        while (!queue.isEmpty()) {
+            ArrayList<Integer> level = new ArrayList<Integer>();
+            int size = queue.size();
+            for (int i = 0; i < size; i++) {
+                TreeNode head = queue.poll();
+                level.add(head.val);
+                if (head.left != null) {
+                    queue.offer(head.left);
+                }
+                if (head.right != null) {
+                    queue.offer(head.right);
+                }
+            }
+            result.add(level);
+        }
+
+      Collections.reverse(result);
+        return result;
+
+    }
+    //二叉树的最大深度
+    public int maxDepth(TreeNode root) {
+        if (root == null) {
             return 0;
         }
-        int j=0;
-        for(int i=1;i<l;i++){
-            if(nums[j]!=nums[i]){
-                nums[++j]= nums[i];
-            }
-        }
-        return j+1;
-    }
-//    public ListNode deleteDuplicates(ListNode head) {
-//        if (head == null) {
-//            return null;
-//        }
-//
-//        ListNode node = head;
-//        while (node.next != null) {
-//            if (node.val == node.next.val) {
-//                node.next = node.next.next;
-//            } else {
-//                node = node.next;
-//            }
-//        }
-//        return head;
-//    }
-    public ListNode deleteDuplicates(ListNode head) {
-        if(head == null){
-            return  null;
-        }
-       ListNode endPointer = head.next;
-        ListNode headPointer = head ;
-        while (endPointer!=null){
-            if(headPointer.val != endPointer.val){
-                headPointer.next = endPointer;
-                headPointer = headPointer.next;
-            }
 
-            endPointer = endPointer.next;
-            if(endPointer ==null){
-                headPointer.next = null;
-            }
-        }
-        return head;
+        int left = maxDepth(root.left);
+        int right = maxDepth(root.right);
+        return Math.max(left, right) + 1;
     }
-//    public ListNode removeElements(ListNode head, int val) {
-//        if (head == null){
-//            return null;
-//        }
-//        ListNode node = head;
-//        ListNode headPointer = null;
-//        while(node!= null){
-//            if(node.val != val){
-//                if(headPointer ==null) {
-//                    headPointer = node;
-//                }else{
-//                    headPointer.next = node;
-//                    headPointer = headPointer.next;
-//                }
-//            }
-//                node = node.next;
-//            if(node == null){
-//                if(headPointer == null){
-//                    return null;
-//                }else{
-//                    headPointer.next = null;
-//                }
-//            }
-//        }
-//        return headPointer ;
-//    }
-    public ListNode removeElements(ListNode head, int val) {
-        ListNode dummy = new ListNode(0);
-        dummy.next = head;
-        head = dummy;
+    //二叉树的最小深度
+    public int minDepth(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+     return getDepth(root);
+    }
+    public int getDepth(TreeNode root){
+        if(root == null){
+            return Integer.MAX_VALUE;
+        }
+        if(root.left ==null && root.right == null){
+            return 1;
+        }
+        return Math.min(getDepth(root.left),getDepth(root.right))+1;
+    }
+    public static  void main(String[] args){
+        TreeNode root = new TreeNode(3);
+        TreeNode nine = new TreeNode(9);
+        TreeNode twe =  new TreeNode(20);
+        TreeNode fif = new TreeNode(15);
+        TreeNode seven = new TreeNode(7);
+        root.left = nine;
+//        root.right = twe;
+//        nine.left = null;
+//        nine.right = null;
+//        twe.left  = fif;
+//        twe.right = seven;
 
-        while (head.next != null) {
-            if (head.next.val == val) {
-                head.next = head.next.next;
-            } else {
-                head = head.next;
-            }
-        }
-
-        return dummy.next;
-    }
-    public ListNode removeNthFromEnd(ListNode head, int n) {
-        ListNode zeroNode = new ListNode(0);
-        ListNode prePointer = zeroNode;
-        zeroNode.next = head;
-        if(head == null){
-            return null;
-        }
-        if(n<0){
-            return null;
-        }
-        for(int i=0;i<n;i++){
-            if(head ==null){
-                return null;
-            }
-            head = head.next;
-        }
-        while(head!=null){
-            head = head.next;
-            prePointer = prePointer.next;
-        }
-        prePointer.next = prePointer.next.next;
-        return zeroNode.next;
-    }
-    public  static void main(String args[]){
-        ListNode n1 = new ListNode(1);
-        ListNode n2 = new ListNode(1);
-//        ListNode n3 = new ListNode(2);
-//        ListNode n4 = new ListNode (3);
-        n1.next = n2;
-//        n2.next = n3;
-//        n3.next = n4;
         Solution s = new Solution();
-        ListNode head = s.removeElements(n1, 2);
-        while(head!=null){
-            System.out.println(head.val);
-            head = head.next;
+        List<List<Integer>> re = s.levelOrderBottom(root);
+        for(int i=0;i<re.size();i++){
+            List<Integer> a = re.get(i);
+            for(int value:a){
+                System.out.println(value);
+            }
         }
-//        ListNode head2 = s.removeElements(n1,2);
-//        while(head2 !=null){
-//            System.out.println(head2.val);
-//            head2 = head2.next;
-//        }
+        Iterator it = re.iterator();
+        int depth = s.minDepth(root);
+         System.out.println(depth);
     }
 }
