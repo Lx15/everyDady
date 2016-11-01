@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>task24</title>
+    <style media="screen">
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        div {
+            border: solid 1px #999;
+            margin: 20px;
+            padding: 20px;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .one {
+            width: auto;
+        }
+
+        .four {
+            width: 50px;
+            height: 50px;
+        }
+
+        button {
+            width: 150px;
+            height: 35px;
+            font-size: 22px;
+            margin: 20px;
+            outline: none;
+        }
+        input{
+          width:150px;
+          height: 35px;
+
+        }
+    </style>
+</head>
+
+<body>
+  <button type="button" name="button" id="DFS">深度优先遍历</button>
+  <button type="button" name="button" id="BFS">广度优先遍历</button>
+  <input type="text" name="name" placeholder="请输入要查询的关键字" id="key">
+  <button type="button" name="button" id="DFSSearch">深度优先搜索</button>
+  <button type="button" name="button" id="BFSSearch">广度优先搜索</button>
+  <button type="button" name="button" id="deleteBtn">删除节点</button>
+  <input type="text" name="name" placeholder=" 请输入节点值" id="nodeValue">
+  <button type="button" name="button" id="addBtn">添加节点</button>
+    <div class="root">root
+        <div class="one">
+            cat
+            <div class="two">
+                Apple
+                <div class="three">
+                    pear
+                </div>
+                <div class="three">
+                    Pig
+                </div>
+                <div class="three">
+                    Cola
+                </div>
+                <div class="three">
+                    Soccer
+                </div>
+            </div>
+            <div class="two">
+                Phone
+            </div>
+            <div class="two">
+                xx
+                <div class="three">
+                    Book
+                </div>
+                <div class="three">
+                    School
+                </div>
+            </div>
+        </div>
+        <div class="one">
+            Fish
+        </div>
+        <div class="one">
+            Note
+            <div class="two">
+                Human
+                <div class="three">
+                    Code
+                </div>
+                <div class="three">
+                    Operate
+                </div>
+                <div class="three">
+                    Man
+                </div>
+            </div>
+            <div class="two">
+                Program
+                <div class="three">
+                    Bement
+                    <div class="four">
+                        Cat
+                    </div>
+
+                </div>
+                <div class="three">
+                    Glass
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="task24.js"></script>
+</body>
+
+</html>
