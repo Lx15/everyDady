@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<!--
+   使用flex ，inline-block , float,clear，vertical-align 失效,
+   canvas 的width 和height一定是在canvas上定义，不然canvas会变形
+-->
+<head>
+    <meta charset="utf-8">
+    <title>task26</title>
+    <style media="screen">
+    *{
+      font-family: 'Microsoft Yahei';
+    }
+      .container{
+        display: flex;
+        display: -webkit-flex;
+        width:60%;
+        height:750px;
+        margin:0 auto;
+        border: solid 1px black;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: stretch;
+      }
+      .console{
+        background-color: #F2F2F2;
+        height:100%;
+        width:30%;
+      }
+      .console fieldset{
+        height:95%;
+        overflow-y: auto;
+      }
+      .space{
+        background-color:#CECECE;
+        height:100%;
+        width:68%;
+
+      }
+      .canvasContainer{
+        display: flex;
+        justify-content: center;
+        align-items:center;
+      }
+      #space-ship{
+        
+      }
+      .commander{
+        background-color: #b5d2d5;
+        height:33%;
+      }
+      .panel{
+        height:90%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        flex-wrap: nowrap;
+      }
+      .space1 button,.space2 button,.space3 button,.space4 button{
+         margin:10px;
+         width:70px;
+         height: 30px;
+         font-size: 16px;
+      }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+      <div class="console">
+        <fieldset>
+          <legend>console Log</legend>
+           <div id="message">
+
+           </div>
+        </fieldset>
+      </div>
+      <div class="space">
+        <div class="canvasContainer">
+          <canvas id="space-ship" width="500" height="500" ></canvas>
+        </div>
+        <div class="commander">
+           <fieldset class="panel">
+            <legend>Command Panel</legend>
+            <div class="space1">
+              <label > space-ship No.1</label>
+              <button type="button" name="button" id ="launch0">launch</button>
+              <button type="button" name="button" id ="fly0">fly</button>
+              <button type="button" name="button" id ="stop0">stop</button>
+              <button type="button" name="button" id ="destroy0">destroy</button>
+            </div>
+            <div class="space2">
+              <label > space-ship No.2</label>
+              <button type="button" name="button" id ="launch1">launch</button>
+              <button type="button" name="button" id ="fly1">fly</button>
+              <button type="button" name="button" id ="stop1">stop</button>
+              <button type="button" name="button" id ="destroy1">destroy</button>
+            </div>
+            <div class="space3">
+              <label > space-ship No.3</label>
+              <button type="button" name="button" id ="launch2">launch</button>
+              <button type="button" name="button" id ="fly2">fly</button>
+              <button type="button" name="button" id ="stop2">stop</button>
+              <button type="button" name="button" id ="destroy2">destroy</button>
+            </div>
+            <div class="space4">
+              <label > space-ship No.4</label>
+              <button type="button" name="button" id ="launch3">launch</button>
+              <button type="button" name="button" id ="fly3">fly</button>
+              <button type="button" name="button" id ="stop3">stop</button>
+              <button type="button" name="button" id ="destroy3">destroy</button>
+            </div>
+           </fieldset>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript" src="task26.js">
+    </script>
+</body>
+
+</html>

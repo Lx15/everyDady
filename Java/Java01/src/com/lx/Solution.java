@@ -1,6 +1,8 @@
 package com.lx;
 
 
+import sun.reflect.generics.tree.Tree;
+
 import java.util.*;
 
 public class Solution{
@@ -121,6 +123,136 @@ public class Solution{
             return 1;
         }
         return Math.min(getDepth(root.left),getDepth(root.right))+1;
+    }
+    //是否是平衡二叉树
+    public int getMaxDepth(TreeNode root){
+        if(root == null){
+            return 0;
+        }
+        if(root.left == null && root.right ==null){
+            return 1;
+        }
+        return  Math.max(getMaxDepth(root.left),getMaxDepth(root.right))+1;
+    }
+    public boolean isBalanced(TreeNode root) {
+        if(root ==null){
+            return true;
+        }
+        int left = getMaxDepth(root.left);
+        int right = getMaxDepth(root.right);
+        if(Math.abs(left-right)>=2){
+            return false;
+        }
+        return isBalanced(root.left)&&isBalanced(root.right);
+    }
+    // 反转二叉树的左右子树
+    public void exchange(TreeNode root){
+        TreeNode temp =null;
+        temp = root.left;
+        root.left = root.right;
+        root.right = temp;
+    }
+    public TreeNode invertTree(TreeNode root) {
+      if(root == null){
+          return root;
+      }
+        exchange( root);
+        invertTree(root.left);
+        invertTree(root.right);
+
+        return  root;
+    }
+    // 打印 从根到叶子的所有路径
+    public void createStr(TreeNode root,String path,List<String> paths){
+        if(root == null){
+            return ;
+        }
+        if(root.left == null && root.right == null){
+            paths.add(path );
+            return ;
+        }
+        if(root.left != null){
+            createStr(root.left,path+"->"+String.valueOf(root.left.val),paths);
+        }
+        if(root.right !=null){
+            createStr(root.right,path+"->"+String.valueOf(root.right.val),paths);
+        }
+
+    }
+    public List<String> binaryTreePaths(TreeNode root) {
+        List<String> result = new ArrayList<String>();
+        if(root == null){
+            return result;
+        }
+       createStr(root,String.valueOf(root.val),result);
+        return result;
+    }
+    // 是否是相同的二叉树
+    public boolean isSameTree(TreeNode p, TreeNode q) {
+        if(p == null && q== null){
+            return true;
+        }
+        if(p == null || q== null || p.val != q.val){
+            return false;
+        }
+        return isSameTree(p.left,q.left)&&isSameTree(p.right,q.right);
+    }
+    // 对称树
+    public boolean compareTree(TreeNode left ,TreeNode right){
+        if(left == null && right == null){
+            return true;
+        }
+        if(left == null || right == null || left.val != right.val){
+            return false;
+        }
+        return compareTree(left.left,right.right)&&compareTree(left.right,right.left);
+    }
+    public boolean isSymmetric(TreeNode root) {
+      if(root == null){
+          return true;
+      }
+        return  compareTree(root.left,root.right);
+    }
+    // BST 找到公共的祖先
+    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+        if(root == null){
+            return null;
+        }
+        if(root.val >p.val && root.val< q.val){
+            return root;
+        }
+        if(root.val>p.val && root.val >q.val){
+            return lowestCommonAncestor(root.left,p,q);
+        }
+        if(root.val<p.val && root.val<q.val){
+            return lowestCommonAncestor(root.right,p,q);
+        }
+        return root;
+    }
+    // 迭代二叉树后序遍历
+    public List<Integer> postorderTraversal(TreeNode root) {
+      ArrayList<Integer> re = new ArrayList<Integer>();
+        if(root == null){
+            return re;
+        }
+      Stack<TreeNode> sta = new Stack<TreeNode>();
+        sta.push(root);
+        re.add(root.val);
+        TreeNode ele = root;
+        while(!sta.empty()){
+            ele = sta.peek();
+            if(ele.left !=null){
+                sta.add(ele.left);
+                ele.left = null;
+            }else if(ele.right != null){
+                sta.add(ele.right);
+                ele.right = null;
+            }else{
+                sta.pop();
+                re.add(ele.val);
+            }
+        }
+       return re;
     }
     public static  void main(String[] args){
         TreeNode root = new TreeNode(3);
