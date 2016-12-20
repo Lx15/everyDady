@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<!--
+   使用flex ，inline-block , float,clear，vertical-align 失效,
+   canvas 的width 和height一定是在canvas上定义，不然canvas会变形
+-->
+
+<head>
+    <meta charset="utf-8">
+    <title>task27</title>
+    <style media="screen">
+        * {
+            font-family: 'Microsoft Yahei';
+        }
+
+        .container {
+            display: flex;
+            display: -webkit-flex;
+            width: 60%;
+            height: 750px;
+            margin: 0 auto;
+            border: solid 1px black;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: center;
+            align-items: stretch;
+        }
+        .modelContainer{
+          position: absolute;
+          background-color:#CECECE;
+          width:100%;
+          height:100%;
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          display: none;
+          z-index: 5;
+          opacity: 0.8;
+        }
+        .model{
+          border: solid 1px black;
+          background-color: #fff;
+          padding: 20px;
+          width:380px;
+        }
+        .model button{
+          margin-left: 30px;
+          width: 100px;
+          height:40px;
+          font-size:18px;
+        }
+        .console {
+            background-color: #F2F2F2;
+            height: 100%;
+            width: 30%;
+        }
+
+        .console fieldset {
+            height: 95%;
+            overflow-y: auto;
+        }
+
+        .space {
+            background-color: #CECECE;
+            height: 100%;
+            width: 68%;
+        }
+
+        .canvasContainer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #background {
+            z-index: 1;
+        }
+
+        #space-ship {
+          position: absolute;
+            z-index: 2;
+        }
+
+        .commander {
+            background-color: #b5d2d5;
+            height: 33%;
+        }
+
+        .panel {
+            height: 90%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            flex-wrap: nowrap;
+        }
+
+        .space1 button,
+        .space2 button,
+        .space3 button,
+        .space4 button {
+            margin: 10px;
+            width: 70px;
+            height: 30px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+  <div class="modelContainer">
+    <div class="model">
+      <form >
+        <label>动力系统选择：
+        <label ><input type="radio" name="powerType" value="0" checked><span>前进号</span></label>
+        <label ><input type="radio" name="powerType" value="1"><span>奔腾号</span></label>
+        <label ><input type="radio" name="powerType" value="2"><span>超越号</span></label>
+        </label>
+        <hr/>
+        <label>能源系统选择：
+          <label><input type="radio" name="energyType" value="0" checked><span>劲量型</span></label>
+          <label><input type="radio" name="energyType" value="1"><span>光能型</span></label>
+          <label><input type="radio" name="energyType" value="2"><span>永久型</span></label>
+        </label>
+        <br/>
+        <br/>
+        <button class="ok" name="button" type="button">确定选择</button>
+        <button class="cancel" name="button" type="button">取消选择</button>
+      </form>
+    </div>
+  </div>
+
+    <div class="container">
+
+        <div class="console">
+            <fieldset>
+                <legend>console Log</legend>
+                <div id="message">
+
+                </div>
+            </fieldset>
+        </div>
+        <div class="space">
+            <div class="canvasContainer">
+                <canvas id="background"></canvas>
+                <canvas id="space-ship"></canvas>
+            </div>
+            <div class="commander">
+                <fieldset class="panel">
+                    <legend>Command Panel</legend>
+                    <div class="space1">
+                        <label> space-ship No.1</label>
+                        <button type="button" name="button" id="launch0">launch</button>
+                        <button type="button" name="button" id="fly0">fly</button>
+                        <button type="button" name="button" id="stop0">stop</button>
+                        <button type="button" name="button" id="destroy0">destroy</button>
+                    </div>
+                    <div class="space2">
+                        <label> space-ship No.2</label>
+                        <button type="button" name="button" id="launch1">launch</button>
+                        <button type="button" name="button" id="fly1">fly</button>
+                        <button type="button" name="button" id="stop1">stop</button>
+                        <button type="button" name="button" id="destroy1">destroy</button>
+                    </div>
+                    <div class="space3">
+                        <label> space-ship No.3</label>
+                        <button type="button" name="button" id="launch2">launch</button>
+                        <button type="button" name="button" id="fly2">fly</button>
+                        <button type="button" name="button" id="stop2">stop</button>
+                        <button type="button" name="button" id="destroy2">destroy</button>
+                    </div>
+                    <div class="space4">
+                        <label> space-ship No.4</label>
+                        <button type="button" name="button" id="launch3">launch</button>
+                        <button type="button" name="button" id="fly3">fly</button>
+                        <button type="button" name="button" id="stop3">stop</button>
+                        <button type="button" name="button" id="destroy3">destroy</button>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+
+    </div>
+
+    <script type="text/javascript" src="task27.js">
+    </script>
+</body>
+
+</html>

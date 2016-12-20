@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>task29</title>
+    <style media="screen">
+      *{
+        font-family: Micosoft Yahei;
+        margin:0;
+        padding: 0;
+      }
+        .container {
+            display: -webkit-flex;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            align-items: center;
+            justify-content: center;
+            height: 500px;
+        }
+
+        form {
+            width: 500px;
+        }
+        input{
+          border: solid 1px #E0E0E0;
+          outline: none;
+          width: 350px;
+          height: 30px;
+          border-radius: 5px;
+        }
+        #check {
+            background-color: #1093EF;
+            border: none;
+            width: 350px;
+            height: 35px;
+            border-radius: 5px;
+            margin-top:50px;
+            margin-left: 120px;
+            color:#fff;
+          }
+
+        .tip {
+            color: #E0E0E0;
+            margin-left: 150px;
+            float:left;
+        }
+
+        .err-border {
+            border: solid 1px red !important;
+        }
+
+        .pass-border {
+            border: solid 1px green !important;
+        }
+
+        .err-font {
+            color: red;
+        }
+
+        .pass-font {
+            color: green;
+        }
+        form div{
+          clear:both;
+          margin:30px 0;
+        }
+        form div label{
+          width:100px;
+          float:left;
+          text-align:right;
+          width:20%;
+          margin-right: 20px;
+          padding-top: 10px;
+        }
+        input:focus{
+          border-color:#1093EF;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <form>
+            <div >
+                <label for="name">名称</label>
+                <input type="text" name="name" id="name" required >
+                <p class="tip"></p>
+            </div>
+
+            <div >
+                <label for="password">密码</label>
+                <input type="password" name="password" id="password" required pattern="[A-Za-z0-9]+">
+                <p class="tip"></p>
+            </div>
+
+            <div >
+                <label for="passwordCheck">密码确认</label>
+                <input type="text" name="passwordCheck" id="passwordCheck" required pattern="[A-Za-z0-9]+">
+                <p class="tip"></p>
+            </div>
+
+            <div >
+                <label for="email">邮箱</label>
+                <input type="email" name="email" id="email" required pattern="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*">
+                <p class="tip"></p>
+            </div>
+
+            <div >
+                <label for="cell">手机</label>
+                <input type="number" name="cell" id="cell" required pattern ="(\+86)|(86)?1[3,5,8]{1}[0-9]{1}[0-9]{8}">
+                <p class="tip"></p>
+            </div>
+
+            <button type="button" name="button" id="check">提交</button>
+        </form>
+    </div>
+
+    <script type="text/javascript" src="task30.js"></script>
+</body>
+
+</html>

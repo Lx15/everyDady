@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>task31</title>
+    <style media="screen">
+        * {
+            margin: 10px 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .info {
+            display: flex;
+            display: -webkit-flex;
+            width: 500px;
+            margin: 0 auto;
+            flex-direction:column;
+            justify-content: center;
+        }
+        .none{
+          display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <form class="info" name="info">
+      <div class="radio">
+        <input type="radio" name="job" value="stu" checked />在校生
+        <input type="radio" name="job" value="staff" />非在校生
+      </div>
+        <div class="stu">
+            学校：
+            <select class="province" name="province">
+            </select>
+            <select class="school" name="school">
+            </select>
+        </div>
+        <div class="staff none">
+            就业单位：
+            <select class="firm" name="firm">
+            </select>
+        </div>
+    </form>
+    <script type="text/javascript" src="task31.js"></script>
+</body>
+
+</html>
